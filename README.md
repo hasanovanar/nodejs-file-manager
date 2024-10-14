@@ -8,9 +8,9 @@
 
 `add "some file name with spaces.txt"`
 
-3. `path_to_new_directory` in copying and moving files is presumed to be folder, not full file path
+3. `path_to_new_directory` **in copying and moving files is presumed to be folder, not full file path**
 
-`cp somefile.txt D:\SomeFolder`
+`cp somefile.txt D:\SomeFolder` <br>
 `mv otherfile.txt D:\OtherFolder`
 
 4. **os options can be chained** <br>
