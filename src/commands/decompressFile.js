@@ -10,9 +10,7 @@ export async function decompressFile(args) {
     const { name, ext } = path.parse(filePath);
 
     if (ext !== ".br") {
-      throw new Error(
-        "Invalid file type. Only '.br' files can be decompressed."
-      );
+      throw new Error("Invalid input.");
     }
 
     const destinationDecompressed = path.join(destinationDir, name);
