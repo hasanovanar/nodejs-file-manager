@@ -36,10 +36,16 @@ export const commands = () => {
     const inputString = input.toString().trim();
 
     const args = inputString
-      .match(/"[^"]+"|\S+/g)
-      .map((arg) => arg.replace(/"/g, ""));
+      ? inputString.match(/"[^"]+"|\S+/g).map((arg) => arg.replace(/"/g, ""))
+      : [];
 
     const [command, ...restArgs] = args;
+
+    if (!command) {
+      currentDirectory();
+      promptUser();
+      return;
+    }
 
     if (command === ".exit") {
       goodByeUser();
