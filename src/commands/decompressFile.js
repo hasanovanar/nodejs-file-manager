@@ -5,17 +5,15 @@ import zlib from "zlib";
 
 export async function decompressFile(args) {
   try {
-    const [filePath, destinationDir] = args;
-    const { name, ext } = path.parse(filePath);
+    const [filePath, destinationPath] = args;
+    const { ext } = path.parse(filePath);
 
     if (ext !== ".br") {
-      throw new Error("Invalid input.");
+      throw new Error("Invalid input");
     }
 
-    const destinationDecompressed = path.join(destinationDir, name);
-
     const readableStream = createReadStream(filePath);
-    const writableStream = createWriteStream(destinationDecompressed);
+    const writableStream = createWriteStream(destinationPath);
     const brotliDecompressor = zlib.createBrotliDecompress();
 
     await stream.pipeline(readableStream, brotliDecompressor, writableStream);
