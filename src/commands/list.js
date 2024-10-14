@@ -24,6 +24,13 @@ export const list = async () => {
       })
     );
 
+    listInfo.sort((a, b) => {
+      if (a.Type === "directory" && b.Type !== "directory") return -1;
+      if (a.Type !== "directory" && b.Type === "directory") return 1;
+
+      return a.Name.localeCompare(b.Name);
+    });
+
     console.table(listInfo);
   } catch (error) {
     console.error("Operation failed");
