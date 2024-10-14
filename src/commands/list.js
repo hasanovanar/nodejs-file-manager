@@ -10,14 +10,11 @@ export const list = async () => {
         const itemStat = await stat(itemPath);
 
         let type;
-        if (itemStat.isFile()) {
-          type = "file";
-        } else if (itemStat.isDirectory()) {
+
+        if (itemStat.isDirectory()) {
           type = "directory";
-        } else if (itemStat.isSymbolicLink()) {
-          type = "symlink";
         } else {
-          type = "other";
+          type = "file";
         }
 
         return { Name: item, Type: type };
