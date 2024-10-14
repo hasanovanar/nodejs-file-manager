@@ -1,7 +1,6 @@
 import { createReadStream, createWriteStream } from "fs";
 import stream from "stream/promises";
 import path from "path";
-import { currentDirectory } from "../utils/currentDirectory.js";
 
 export const copyFile = async (args) => {
   try {
@@ -14,7 +13,5 @@ export const copyFile = async (args) => {
     await stream.pipeline(readableStream, writableStream);
   } catch (error) {
     console.error("Operation failed");
-  } finally {
-    currentDirectory();
   }
 };

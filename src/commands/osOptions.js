@@ -1,5 +1,5 @@
 import os from "os";
-import { currentDirectory } from "../utils/currentDirectory.js";
+// import { currentDirectory } from "../utils/currentDirectory.js";
 
 export const osOptions = (input) => {
   const options = input.trim().split(" ").filter(Boolean);
@@ -43,5 +43,5 @@ export const osOptions = (input) => {
     executeOption(option);
   }
 
-  currentDirectory();
+  // currentDirectory();
 };

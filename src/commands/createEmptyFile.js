@@ -1,6 +1,5 @@
 import { writeFile, access } from "fs/promises";
 import path from "path";
-import { currentDirectory } from "../utils/currentDirectory.js";
 
 export const createFile = async (fileName) => {
   try {
@@ -16,7 +15,5 @@ export const createFile = async (fileName) => {
     await writeFile(filePath, "");
   } catch (error) {
     console.error("Operation failed");
-  } finally {
-    currentDirectory();
   }
 };

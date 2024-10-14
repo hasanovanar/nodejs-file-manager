@@ -1,6 +1,5 @@
 import { createHash } from "crypto";
 import { readFile } from "fs/promises";
-import { currentDirectory } from "../utils/currentDirectory.js";
 
 export const calculateHash = async (filePath) => {
   try {
@@ -11,7 +10,5 @@ export const calculateHash = async (filePath) => {
     console.log(hash);
   } catch (error) {
     console.error("Operation failed");
-  } finally {
-    currentDirectory();
   }
 };

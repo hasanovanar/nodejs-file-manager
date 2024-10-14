@@ -2,7 +2,6 @@ import { createReadStream, createWriteStream } from "fs";
 import stream from "stream/promises";
 import path from "path";
 import zlib from "zlib";
-import { currentDirectory } from "../utils/currentDirectory.js";
 
 export async function compressFile(args) {
   try {
@@ -18,7 +17,5 @@ export async function compressFile(args) {
     await stream.pipeline(readableStream, brotliCompressor, writableStream);
   } catch (error) {
     console.error("Operation failed");
-  } finally {
-    currentDirectory();
   }
 }

@@ -1,5 +1,4 @@
 import { readdir, stat } from "fs/promises";
-import { currentDirectory } from "../utils/currentDirectory.js";
 
 export const list = async () => {
   try {
@@ -28,7 +27,5 @@ export const list = async () => {
     console.table(listInfo);
   } catch (error) {
     console.error("Operation failed");
-  } finally {
-    currentDirectory();
   }
 };

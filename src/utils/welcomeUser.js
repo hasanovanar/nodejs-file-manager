@@ -1,5 +1,6 @@
-import { currentDirectory } from "./currentDirectory.js";
 import os from "os";
+import { currentDirectory } from "./currentDirectory.js";
+import { promptUser } from "./promptUser.js";
 
 export const welcomeUser = () => {
   const args = process.argv.slice(2);
@@ -12,5 +13,6 @@ export const welcomeUser = () => {
   process.chdir(homeDir);
 
   currentDirectory();
+  promptUser();
   process.stdin.resume();
 };

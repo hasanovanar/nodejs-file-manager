@@ -1,5 +1,6 @@
 import { goodByeUser } from "./utils/goodByeUser.js";
 import { currentDirectory } from "./utils/currentDirectory.js";
+import { promptUser } from "./utils/promptUser.js";
 import { goUpDirectory } from "./commands/goUpDirectory.js ";
 import { goToDirectory } from "./commands/goToDirectory.js";
 import { readFile } from "./commands/readFile.js";
@@ -53,19 +54,28 @@ export const commands = () => {
           command === "decompress"
         ) {
           await commands[command](restArgs);
+        } else if (command === "cat") {
+          await commands[command](restArgs.join(" "));
+          return;
         } else {
           await commands[command](restArgs.join(" "));
         }
       } catch (error) {
         console.error(error.message);
       }
+      if (command !== "cat") {
+        currentDirectory();
+        promptUser();
+      }
     } else {
       console.log("Invalid input");
       currentDirectory();
+      promptUser();
     }
   });
 
   process.on("SIGINT", () => {
+    console.log(" ");
     goodByeUser();
     process.exit(0);
   });

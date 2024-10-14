@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
-import { currentDirectory } from "../utils/currentDirectory.js";
+// import { currentDirectory } from "../utils/currentDirectory.js";
 
 export const renameFile = async (args) => {
   try {
@@ -12,6 +12,6 @@ export const renameFile = async (args) => {
   } catch (error) {
     console.error("Operation failed");
   } finally {
-    currentDirectory();
+    // currentDirectory();
   }
 };
